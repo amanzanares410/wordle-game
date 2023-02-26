@@ -63,4 +63,16 @@ public class WordleDictionaryTest {
         //Comparison
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void getDictionarySizeOne() {
+        //Expected
+        int expected = 1;
+        //Insert words
+        testDictionary.addWord("hello");
+        //Actual
+        int actual = testDictionary.getDictionarySize();
+        //Comparison
+        assertEquals(expected, actual);
+    }
 }
