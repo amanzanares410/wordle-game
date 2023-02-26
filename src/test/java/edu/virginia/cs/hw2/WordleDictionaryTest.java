@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class WordleDictionaryTest {
     private static final String ONE_WORD_DICTIONARY_FILENAME = "/one_word_dictionary.txt";
@@ -24,4 +23,20 @@ public class WordleDictionaryTest {
         assertEquals(1, testDictionary.getDictionarySize());
         assertTrue(testDictionary.containsWord("BALDY"));
     }
+
+    @Test
+    public void containsWordTestFalse() {
+        //Input
+        String word = "HELLO";
+        //Test
+        assertFalse(testDictionary.containsWord(word.toUpperCase()));
+    }
+
+    public void containsWordTestTrue() {
+        //Input
+        String word = "BALDY";
+        //Test
+        assertTrue(testDictionary.containsWord(word.toUpperCase()));
+    }
+
 }
