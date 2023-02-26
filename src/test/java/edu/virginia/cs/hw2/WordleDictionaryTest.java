@@ -29,7 +29,7 @@ public class WordleDictionaryTest {
         //Input
         String word = "HELLO";
         //Add word
-        testDictionary.addWord("BYE");
+        testDictionary.addWord("plate");
         //Test
         assertFalse(testDictionary.containsWord(word));
     }
@@ -70,6 +70,20 @@ public class WordleDictionaryTest {
         int expected = 1;
         //Insert words
         testDictionary.addWord("hello");
+        //Actual
+        int actual = testDictionary.getDictionarySize();
+        //Comparison
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getDictionarySizeMultiple() {
+        //Expected
+        int expected = 3;
+        //Insert words
+        testDictionary.addWord("hello");
+        testDictionary.addWord("plate");
+        testDictionary.addWord("plane");
         //Actual
         int actual = testDictionary.getDictionarySize();
         //Comparison
