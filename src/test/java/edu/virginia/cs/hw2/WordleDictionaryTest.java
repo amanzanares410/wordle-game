@@ -53,4 +53,14 @@ public class WordleDictionaryTest {
         //Test
         assertTrue(testDictionary.containsWord(word));
     }
+
+    @Test
+    public void getDictionarySizeZero() {
+        //Expected
+        int expected = 0;
+        //Actual
+        int actual = testDictionary.getDictionarySize();
+        //Comparison
+        assertEquals(expected, actual);
+    }
 }
