@@ -28,15 +28,29 @@ public class WordleDictionaryTest {
     public void containsWordTestFalse() {
         //Input
         String word = "HELLO";
+        //Add word
+        testDictionary.addWord("BYE");
         //Test
-        assertFalse(testDictionary.containsWord(word.toUpperCase()));
-    }
-    @Test
-    public void containsWordTestTrue() {
-        //Input
-        String word = "BALDY";
-        //Test
-        assertTrue(testDictionary.containsWord(word.toUpperCase()));
+        assertFalse(testDictionary.containsWord(word));
     }
 
+    @Test
+    public void containsWordTestTrueUpperCase() {
+        //Input
+        String word = "HELLO";
+        //Add word
+        testDictionary.addWord("HELLO");
+        //Test
+        assertTrue(testDictionary.containsWord(word));
+    }
+
+    @Test
+    public void containsWordTestTrueLowerCase() {
+        //Input
+        String word = "hello";
+        //Add word
+        testDictionary.addWord("HELLO");
+        //Test
+        assertTrue(testDictionary.containsWord(word));
+    }
 }
