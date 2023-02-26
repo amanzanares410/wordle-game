@@ -113,4 +113,12 @@ public class WordleDictionaryTest {
         //Test
         assertTrue(testDictionary.isLegalWordleWord(word));
     }
+
+    @Test
+    public void isLegalWordleWordTestInvalidChar1() {
+        //Input
+        String word = "2good";
+        //Test
+        assertFalse(testDictionary.isLegalWordleWord(word));
+    }
 }
