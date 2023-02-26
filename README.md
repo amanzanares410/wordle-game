@@ -2,7 +2,7 @@
 
 ## Authors
 
-* Author 1 - netID
+* Ashley Manzanares - fnv2vx
 * Author 2 - netID
 * Author 3 - netID
 
