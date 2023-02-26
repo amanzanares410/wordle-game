@@ -89,4 +89,28 @@ public class WordleDictionaryTest {
         //Comparison
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void isLegalWordleWordTestNull() {
+        //Input
+        String word = null;
+        //Test
+        assertFalse(testDictionary.isLegalWordleWord(word));
+    }
+
+    @Test
+    public void isLegalWordleWordTestIncorrectSize() {
+        //Input
+        String word = "bye";
+        //Test
+        assertFalse(testDictionary.isLegalWordleWord(word));
+    }
+
+    @Test
+    public void isLegalWordleWordTestCorrectSize() {
+        //Input
+        String word = "hello";
+        //Test
+        assertTrue(testDictionary.isLegalWordleWord(word));
+    }
 }
