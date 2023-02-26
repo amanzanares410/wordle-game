@@ -31,7 +31,7 @@ public class WordleDictionaryTest {
         //Test
         assertFalse(testDictionary.containsWord(word.toUpperCase()));
     }
-
+    @Test
     public void containsWordTestTrue() {
         //Input
         String word = "BALDY";
