@@ -129,4 +129,12 @@ public class WordleDictionaryTest {
         //Test
         assertFalse(testDictionary.isLegalWordleWord(word));
     }
+
+    @Test
+    public void isLegalWordleWordTestCharacterAfterZ() {
+        //Input
+        String word = "gre]t";
+        //Test
+        assertFalse(testDictionary.isLegalWordleWord(word));
+    }
 }

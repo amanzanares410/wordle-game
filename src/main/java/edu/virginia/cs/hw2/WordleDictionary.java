@@ -48,6 +48,7 @@ public class WordleDictionary {
     }
 
     public boolean isLegalWordleWord(String word) {
+        boolean value = false;
         if (word == null) {
             return false;
         } else if (word.length() == ALLOWED_WORD_SIZE) {
@@ -57,7 +58,7 @@ public class WordleDictionary {
                 if (ch < 'A') {
                     return false;
                 } else if (ch <= 'Z') {
-                    return true;
+                    value = true;
                 } else {
                     return false;
                 }
@@ -65,7 +66,7 @@ public class WordleDictionary {
         } else {
             return false;
         }
-        return false;
+        return value;
     }
 
     public void addWord(String word) {
