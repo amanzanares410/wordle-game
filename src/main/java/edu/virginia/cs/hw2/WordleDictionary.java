@@ -51,7 +51,7 @@ public class WordleDictionary {
         if (word == null) {
             return false;
         } else if (word.length() == ALLOWED_WORD_SIZE) {
-            word.toUpperCase();
+            word = word.toUpperCase();
             for (int i = 0; i <= ALLOWED_WORD_SIZE; i++) {
                 char ch = word.charAt(i);
                 if (ch < 'A') {
