@@ -137,4 +137,14 @@ public class WordleDictionaryTest {
         //Test
         assertFalse(testDictionary.isLegalWordleWord(word));
     }
+
+    @Test
+    public void addWordTestExceptionThrown() {
+        //Input
+        String word = "bye";
+        //Test
+        assertThrows(IllegalWordException.class, () -> {
+            testDictionary.addWord(word);
+        });
+    }
 }
