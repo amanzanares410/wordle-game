@@ -20,7 +20,7 @@ public class DefaultDictionaryFactory {
 
     public WordleDictionary getDefaultAnswersDictionary() {
         if (ifDictionaryNotCreatedYet(defaultAnswersDictionary)) {
-            defaultGuessesDictionary = new WordleDictionary();
+            defaultAnswersDictionary = new WordleDictionary();
             InputStream inputStream = getResourceAsInputStream(DEFAULT_ANSWERS_DICTIONARY_FILENAME);
             addInputStreamWordsToDictionary(inputStream, defaultAnswersDictionary);
         }
