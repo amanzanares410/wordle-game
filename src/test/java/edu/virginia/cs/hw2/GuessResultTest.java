@@ -43,6 +43,25 @@ class GuessResultTest {
         assertEquals("gGYgg", getLetterResultArrayAsString(guessResult));
     }
 
+    @Test
+    public void testLetterResultDoubleLetterAnswer() {
+        givenInputGuessAndAnswer("SHALL", "HELLO");
+
+        LetterResult[] guessResult = testGuessResult.getGuessResult();
+
+        assertEquals("gYgGY", getLetterResultArrayAsString(guessResult));
+    }
+
+    @Test
+    public void testLetterResultDoubleLetterGuess() {
+        givenInputGuessAndAnswer("SHALL", "PLANE");
+
+        LetterResult[] guessResult = testGuessResult.getGuessResult();
+
+        assertEquals("ggGYg", getLetterResultArrayAsString(guessResult));
+    }
+
+
     private void givenInputGuessAndAnswer(String guess, String answer) {
         testGuessResult.setGuess(guess);
         testGuessResult.setAnswer(answer);
