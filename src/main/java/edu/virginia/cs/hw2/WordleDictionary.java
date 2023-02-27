@@ -48,16 +48,17 @@ public class WordleDictionary {
     }
 
     public boolean isLegalWordleWord(String word) {
+        boolean value = false;
         if (word == null) {
             return false;
         } else if (word.length() == ALLOWED_WORD_SIZE) {
-            word.toUpperCase();
-            for (int i = 0; i <= ALLOWED_WORD_SIZE; i++) {
+            word = word.toUpperCase();
+            for (int i = 0; i < ALLOWED_WORD_SIZE; i++) {
                 char ch = word.charAt(i);
                 if (ch < 'A') {
                     return false;
-                } else if (ch < 'Z') {
-                    return true;
+                } else if (ch <= 'Z') {
+                    value = true;
                 } else {
                     return false;
                 }
@@ -65,7 +66,7 @@ public class WordleDictionary {
         } else {
             return false;
         }
-        return false;
+        return value;
     }
 
     public void addWord(String word) {
