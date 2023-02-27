@@ -56,7 +56,7 @@ public class WordleDictionary {
                 char ch = word.charAt(i);
                 if (ch < 'A') {
                     return false;
-                } else if (ch < 'Z') {
+                } else if (ch <= 'Z') {
                     return true;
                 } else {
                     return false;
