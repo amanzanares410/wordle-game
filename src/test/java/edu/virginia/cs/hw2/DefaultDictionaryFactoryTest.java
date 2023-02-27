@@ -17,4 +17,10 @@ public class DefaultDictionaryFactoryTest {
         WordleDictionary defaultGuessesDictionary = testFactory.getDefaultGuessesDictionary();
         assertNotNull(defaultGuessesDictionary);
     }
+
+    @Test
+    public void testGetDefaultAnswersDictionary() {
+        WordleDictionary defaultAnswersDictionary = testFactory.getDefaultAnswersDictionary();
+        assertNotNull(defaultAnswersDictionary);
+    }
 }
