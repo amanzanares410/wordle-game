@@ -30,7 +30,6 @@ public class GuessResult {
         if (guess.equals(answer)) {
             return getCorrectAnswerArray();
         }
-
         return guessResult;
         //TODO: Currently incomplete - implement via TDD - Write Tests in GuessResultsTest.java
     }

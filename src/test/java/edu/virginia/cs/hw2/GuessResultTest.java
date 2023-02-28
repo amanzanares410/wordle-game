@@ -89,8 +89,26 @@ class GuessResultTest {
     }
 
     @Test
-    public void testLetterResultInvalidGuess() {
+    public void testLetterResultInvalidSize() {
         givenInputGuessAndAnswer("BYE", "ARRAY");
+
+        assertThrows(IllegalWordException.class, () -> {
+            testGuessResult.getGuessResult();
+        });
+    }
+
+    @Test
+    public void testLetterResultInvalidGuessBefore() {
+        givenInputGuessAndAnswer("2GOOD", "ARRAY");
+
+        assertThrows(IllegalWordException.class, () -> {
+            testGuessResult.getGuessResult();
+        });
+    }
+
+    @Test
+    public void testLetterResultInvalidGuessMiddle() {
+        givenInputGuessAndAnswer("GO2OD", "ARRAY");
 
         assertThrows(IllegalWordException.class, () -> {
             testGuessResult.getGuessResult();
