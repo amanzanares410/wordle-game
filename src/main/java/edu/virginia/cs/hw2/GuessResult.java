@@ -30,6 +30,21 @@ public class GuessResult {
         if (guess.equals(answer)) {
             return getCorrectAnswerArray();
         }
+        for(int i = 0; i < GUESS_RESULT_ARRAY_SIZE; i++) {
+            char letter = guess.charAt(i);
+            int j = 0;
+            while(j < GUESS_RESULT_ARRAY_SIZE) {
+                if(letter == answer.charAt(j)) {
+                    if(i == j) {
+                        guessResult[i] = LetterResult.GREEN;
+                    }
+                    else if(i != j) {
+                        guessResult[i] = LetterResult.YELLOW;
+                    }
+                }
+                j++;
+            }
+        }
         return guessResult;
         //TODO: Currently incomplete - implement via TDD - Write Tests in GuessResultsTest.java
     }
