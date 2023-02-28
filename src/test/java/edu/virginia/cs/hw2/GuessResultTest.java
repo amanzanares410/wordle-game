@@ -76,7 +76,7 @@ class GuessResultTest {
 
         LetterResult[] guessResult = testGuessResult.getGuessResult();
 
-        assertEquals("ggGYg", getLetterResultArrayAsString(guessResult));
+        assertEquals("YgggG", getLetterResultArrayAsString(guessResult));
     }
 
     @Test
@@ -85,7 +85,7 @@ class GuessResultTest {
 
         LetterResult[] guessResult = testGuessResult.getGuessResult();
 
-        assertEquals("ggGYg", getLetterResultArrayAsString(guessResult));
+        assertEquals("GgYgg", getLetterResultArrayAsString(guessResult));
     }
 
     @Test
