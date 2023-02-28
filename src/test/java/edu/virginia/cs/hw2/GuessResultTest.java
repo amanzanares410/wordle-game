@@ -34,6 +34,114 @@ class GuessResultTest {
         assertEquals("GGGGG", getLetterResultArrayAsString(guessResult));
     }
 
+    @Test
+    public void testLetterResultAllGray() {
+        givenInputGuessAndAnswer("QUART", "NOISE");
+
+        LetterResult[] guessResult = testGuessResult.getGuessResult();
+
+        assertEquals("ggggg", getLetterResultArrayAsString(guessResult));
+    }
+
+    @Test
+    public void testLetterResultRandom() {
+        givenInputGuessAndAnswer("PLATE", "ALONG");
+
+        LetterResult[] guessResult = testGuessResult.getGuessResult();
+
+        assertEquals("gGYgg", getLetterResultArrayAsString(guessResult));
+    }
+
+    @Test
+    public void testLetterResultRandomLowercase() {
+        givenInputGuessAndAnswer("plate", "ALONG");
+
+        LetterResult[] guessResult = testGuessResult.getGuessResult();
+
+        assertEquals("gGYgg", getLetterResultArrayAsString(guessResult));
+    }
+
+    @Test
+    public void testLetterResultDoubleLetterAnswer() {
+        givenInputGuessAndAnswer("SHALL", "HELLO");
+
+        LetterResult[] guessResult = testGuessResult.getGuessResult();
+
+        assertEquals("gYgGY", getLetterResultArrayAsString(guessResult));
+    }
+
+    @Test
+    public void testLetterResultDoubleLetterGuess() {
+        givenInputGuessAndAnswer("LEAVE", "CLOSE");
+
+        LetterResult[] guessResult = testGuessResult.getGuessResult();
+
+        assertEquals("YgggG", getLetterResultArrayAsString(guessResult));
+    }
+
+    @Test
+    public void testLetterResultDoubleLetterGuessGrey() {
+        givenInputGuessAndAnswer("CHEER", "CLOSE");
+
+        LetterResult[] guessResult = testGuessResult.getGuessResult();
+
+        assertEquals("GgYgg", getLetterResultArrayAsString(guessResult));
+    }
+
+    @Test
+    public void testLetterResultTwoDoubleLetterAnswer() {
+        givenInputGuessAndAnswer("RADAR", "ARRAY");
+
+        LetterResult[] guessResult = testGuessResult.getGuessResult();
+
+        assertEquals("YYgGY", getLetterResultArrayAsString(guessResult));
+    }
+
+    @Test
+    public void testLetterResultInvalidSize() {
+        givenInputGuessAndAnswer("BYE", "ARRAY");
+
+        assertThrows(IllegalWordException.class, () -> {
+            testGuessResult.getGuessResult();
+        });
+    }
+
+    @Test
+    public void testLetterResultInvalidGuessBefore() {
+        givenInputGuessAndAnswer("2GOOD", "ARRAY");
+
+        assertThrows(IllegalWordException.class, () -> {
+            testGuessResult.getGuessResult();
+        });
+    }
+
+    @Test
+    public void testLetterResultInvalidGuessMiddle() {
+        givenInputGuessAndAnswer("GO2OD", "ARRAY");
+
+        assertThrows(IllegalWordException.class, () -> {
+            testGuessResult.getGuessResult();
+        });
+    }
+
+    @Test
+    public void testLetterResultInvalidGuessBeforeZ() {
+        givenInputGuessAndAnswer("[GOOD", "ARRAY");
+
+        assertThrows(IllegalWordException.class, () -> {
+            testGuessResult.getGuessResult();
+        });
+    }
+
+    @Test
+    public void testLetterResultInvalidGuessMiddleZ() {
+        givenInputGuessAndAnswer("GO[OD", "ARRAY");
+
+        assertThrows(IllegalWordException.class, () -> {
+            testGuessResult.getGuessResult();
+        });
+    }
+
     private void givenInputGuessAndAnswer(String guess, String answer) {
         testGuessResult.setGuess(guess);
         testGuessResult.setAnswer(answer);
