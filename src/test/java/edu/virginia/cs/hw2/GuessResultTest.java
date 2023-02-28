@@ -115,6 +115,24 @@ class GuessResultTest {
         });
     }
 
+    @Test
+    public void testLetterResultInvalidGuessBeforeZ() {
+        givenInputGuessAndAnswer("[GOOD", "ARRAY");
+
+        assertThrows(IllegalWordException.class, () -> {
+            testGuessResult.getGuessResult();
+        });
+    }
+
+    @Test
+    public void testLetterResultInvalidGuessMiddleZ() {
+        givenInputGuessAndAnswer("GO[OD", "ARRAY");
+
+        assertThrows(IllegalWordException.class, () -> {
+            testGuessResult.getGuessResult();
+        });
+    }
+
     private void givenInputGuessAndAnswer(String guess, String answer) {
         testGuessResult.setGuess(guess);
         testGuessResult.setAnswer(answer);
