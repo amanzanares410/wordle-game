@@ -53,6 +53,8 @@ public class GuessResult {
             for(int j = 0; j < GUESS_RESULT_ARRAY_SIZE; j++) {
                 if(guessResult[i] != LetterResult.GREEN && guess.charAt(i) == unusedLetters[j]) {
                     guessResult[i] = LetterResult.YELLOW;
+                    unusedLetters[j] = 0;
+                    break;
                 }
             }
         }
