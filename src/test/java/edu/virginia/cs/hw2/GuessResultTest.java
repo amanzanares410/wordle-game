@@ -53,6 +53,15 @@ class GuessResultTest {
     }
 
     @Test
+    public void testLetterResultRandomLowercase() {
+        givenInputGuessAndAnswer("plate", "ALONG");
+
+        LetterResult[] guessResult = testGuessResult.getGuessResult();
+
+        assertEquals("gGYgg", getLetterResultArrayAsString(guessResult));
+    }
+
+    @Test
     public void testLetterResultDoubleLetterAnswer() {
         givenInputGuessAndAnswer("SHALL", "HELLO");
 
