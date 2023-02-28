@@ -27,6 +27,15 @@ public class GuessResult {
 
     public LetterResult[] getGuessResult() {
         verifyAllFieldsAreInitialized();
+        if(guess.length() != GUESS_RESULT_ARRAY_SIZE) {
+            throw new IllegalWordException("Guess needs to be 5 letters");
+        }
+        for(int i = 0; i < GUESS_RESULT_ARRAY_SIZE; i++) {
+            char ch = guess.charAt(i);
+            if(ch < 'A' || ch > 'Z') {
+                throw new IllegalWordException("Guess can only contain letters");
+            }
+        }
         if (guess.equals(answer)) {
             return getCorrectAnswerArray();
         }
