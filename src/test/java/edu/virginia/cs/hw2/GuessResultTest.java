@@ -72,7 +72,7 @@ class GuessResultTest {
 
     @Test
     public void testLetterResultDoubleLetterGuess() {
-        givenInputGuessAndAnswer("SHALL", "PLANE");
+        givenInputGuessAndAnswer("LEAVE", "CLOSE");
 
         LetterResult[] guessResult = testGuessResult.getGuessResult();
 

@@ -27,6 +27,7 @@ public class GuessResult {
 
     public LetterResult[] getGuessResult() {
         verifyAllFieldsAreInitialized();
+        int[] usedLetters = new int[5];
         if(guess.length() != GUESS_RESULT_ARRAY_SIZE) {
             throw new IllegalWordException("Guess needs to be 5 letters");
         }
