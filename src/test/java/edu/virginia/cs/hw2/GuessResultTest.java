@@ -79,6 +79,15 @@ class GuessResultTest {
         assertEquals("YYgGY", getLetterResultArrayAsString(guessResult));
     }
 
+    @Test
+    public void testLetterResultInvalidGuess() {
+        givenInputGuessAndAnswer("BYE", "ARRAY");
+
+        assertThrows(IllegalWordException.class, () -> {
+            testGuessResult.getGuessResult();
+        });
+    }
+
     private void givenInputGuessAndAnswer(String guess, String answer) {
         testGuessResult.setGuess(guess);
         testGuessResult.setAnswer(answer);
