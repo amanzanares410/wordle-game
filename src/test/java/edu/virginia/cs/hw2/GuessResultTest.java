@@ -35,6 +35,15 @@ class GuessResultTest {
     }
 
     @Test
+    public void testLetterResultAllGray() {
+        givenInputGuessAndAnswer("QUART", "NOISE");
+
+        LetterResult[] guessResult = testGuessResult.getGuessResult();
+
+        assertEquals("ggggg", getLetterResultArrayAsString(guessResult));
+    }
+
+    @Test
     public void testLetterResultRandom() {
         givenInputGuessAndAnswer("PLATE", "ALONG");
 
@@ -61,6 +70,14 @@ class GuessResultTest {
         assertEquals("ggGYg", getLetterResultArrayAsString(guessResult));
     }
 
+    @Test
+    public void testLetterResultTwoDoubleLetterAnswer() {
+        givenInputGuessAndAnswer("RADAR", "ARRAY");
+
+        LetterResult[] guessResult = testGuessResult.getGuessResult();
+
+        assertEquals("YYgGY", getLetterResultArrayAsString(guessResult));
+    }
 
     private void givenInputGuessAndAnswer(String guess, String answer) {
         testGuessResult.setGuess(guess);
