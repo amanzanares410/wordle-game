@@ -1,5 +1,6 @@
 package edu.virginia.cs.hw2;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class GuessResult {
@@ -28,7 +29,7 @@ public class GuessResult {
 
     public LetterResult[] getGuessResult() {
         verifyAllFieldsAreInitialized();
-        int[] usedLetters = new int[5];
+        char[] unusedLetters = new char[5];
         if(guess.length() != GUESS_RESULT_ARRAY_SIZE) {
             throw new IllegalWordException("Guess needs to be 5 letters");
         }
@@ -42,27 +43,21 @@ public class GuessResult {
             return getCorrectAnswerArray();
         }
         for(int i = 0; i < GUESS_RESULT_ARRAY_SIZE; i++) {
-            char letter = guess.charAt(i);
-            int j = 0;
-            while(j < GUESS_RESULT_ARRAY_SIZE) {
-                if(letter == answer.charAt(j)) {
-                    if(i == j) {
-                        guessResult[i] = LetterResult.GREEN;
-                    }
-                    else if(i != j) {
-                        guessResult[i] = LetterResult.YELLOW;
-
-                    }
-                }
-                j++;
+            if (guess.charAt(i) == answer.charAt(i)) {
+                guessResult[i] = LetterResult.GREEN;
+            } else {
+                unusedLetters[i] = answer.charAt(i);
             }
         }
-
+        for(int i = 0; i < GUESS_RESULT_ARRAY_SIZE; i++) {
+            for(int j = 0; j < GUESS_RESULT_ARRAY_SIZE; j++) {
+                if(guessResult[i] != LetterResult.GREEN && guess.charAt(i) == unusedLetters[j]) {
+                    guessResult[i] = LetterResult.YELLOW;
+                }
+            }
+        }
         return guessResult;
         //TODO: Currently incomplete - implement via TDD - Write Tests in GuessResultsTest.java
-
-
-
     }
 
     private void verifyAllFieldsAreInitialized() {
