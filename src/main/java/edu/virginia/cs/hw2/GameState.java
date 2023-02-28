@@ -37,7 +37,7 @@ public class GameState {
     }
 
     public GameState() {
-        this(getRandomAnswerFromDefaultDictionary(), getDefaultGuessesDictionary(), MAX_GUESSES, GameStatus.PLAYING);
+        this(getRandomAnswerFromDefaultDictionary(), getDefaultGuessesDictionary(), 0, GameStatus.PLAYING);
     }
 
     private static String getRandomAnswerFromDefaultDictionary() {
