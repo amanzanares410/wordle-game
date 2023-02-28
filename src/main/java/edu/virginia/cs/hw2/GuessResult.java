@@ -13,6 +13,7 @@ public class GuessResult {
         return answer;
     }
 
+
     public void setAnswer(String answer) {
         this.answer = answer.toUpperCase();
     }
@@ -49,13 +50,18 @@ public class GuessResult {
                     }
                     else if(i != j) {
                         guessResult[i] = LetterResult.YELLOW;
+
                     }
                 }
                 j++;
             }
         }
+
         return guessResult;
         //TODO: Currently incomplete - implement via TDD - Write Tests in GuessResultsTest.java
+
+
+
     }
 
     private void verifyAllFieldsAreInitialized() {

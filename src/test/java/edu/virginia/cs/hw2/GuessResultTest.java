@@ -80,6 +80,15 @@ class GuessResultTest {
     }
 
     @Test
+    public void testLetterResultDoubleLetterGuessGrey() {
+        givenInputGuessAndAnswer("CHEER", "CLOSE");
+
+        LetterResult[] guessResult = testGuessResult.getGuessResult();
+
+        assertEquals("ggGYg", getLetterResultArrayAsString(guessResult));
+    }
+
+    @Test
     public void testLetterResultTwoDoubleLetterAnswer() {
         givenInputGuessAndAnswer("RADAR", "ARRAY");
 
