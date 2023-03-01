@@ -62,7 +62,7 @@ class GameTest {
         DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
         testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 2, GameState.GameStatus.WON);
         testGame.submitGuess("PLANE");
-        assertFalse(testGame.isGameOver());
+        assertTrue(testGame.isGameOver());
     }
 
     @Test
