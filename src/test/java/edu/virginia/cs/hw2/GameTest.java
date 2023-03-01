@@ -47,4 +47,12 @@ class GameTest {
         assertEquals(3, testGame.getRemainingGuesses());
     }
 
+    @Test
+    public void getAnswer() {
+        DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
+        testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 3, GameState.GameStatus.PLAYING);
+        assertEquals("HELLO", testGame.getAnswer());
+    }
+
+
 }
