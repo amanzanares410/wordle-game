@@ -33,4 +33,12 @@ class GameTest {
         assertFalse(testGame.isWin());
     }
 
+    @Test
+    public void testGetGuessCount() {
+        DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
+        testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 3, GameState.GameStatus.PLAYING);
+        assertEquals(3, testGame.getGuessCount());
+    }
+
+
 }
