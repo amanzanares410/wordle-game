@@ -3,8 +3,7 @@
 ## Authors
 
 * Ashley Manzanares - fnv2vx
-* Author 2 - netID
-* Author 3 - netID
+* Kate Tarazi - gge7ds
 
 
 ## High-Level Overview
