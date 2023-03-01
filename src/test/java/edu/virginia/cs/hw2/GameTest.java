@@ -61,7 +61,6 @@ class GameTest {
     public void testIsGameOverTrue() {
         DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
         testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 2, GameState.GameStatus.WON);
-        testGame.submitGuess("PLANE");
         assertTrue(testGame.isGameOver());
     }
 
