@@ -34,6 +34,22 @@ class GameTest {
     }
 
     @Test
+    public void testIsLostTrue() {
+        DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
+        testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 5, GameState.GameStatus.PLAYING);
+        testGame.submitGuess("PLANE");
+        assertTrue(testGame.isLoss());
+    }
+
+    @Test
+    public void testIsLostFalse() {
+        DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
+        testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 2, GameState.GameStatus.PLAYING);
+        testGame.submitGuess("PLANE");
+        assertFalse(testGame.isLoss());
+    }
+
+    @Test
     public void testGetGuessCount() {
         DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
         testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 3, GameState.GameStatus.PLAYING);
