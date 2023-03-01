@@ -54,5 +54,13 @@ class GameTest {
         assertEquals("HELLO", testGame.getAnswer());
     }
 
+    @Test
+    public void testInvalidInput() {
+        DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
+        testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 3, GameState.GameStatus.PLAYING);
+        assertThrows(IllegalWordException.class, () -> {
+            testGame.submitGuess("He5LO");
+        });
+    }
 
 }
