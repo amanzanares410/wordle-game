@@ -74,6 +74,9 @@ public class GameState {
         GuessResult guessResult = new GuessResult();
         guessResult.setGuess(guess);
         guessResult.setAnswer(answer);
+        if(isWin() == true) {
+            throw new GameAlreadyOverException("This game has already been won");
+        }
         if (getRemainingGuesses() == 0) {
             throw new GameAlreadyOverException("No guesses left");
         }
@@ -92,6 +95,7 @@ public class GameState {
         if(guess.equals(this.answer) == false && this.guessCount == 5) {
             this.gameStatus = GameStatus.LOST;
         }
+        this.guessCount++;
         return null;
         //TODO: Stub - Implement method with TDD - tests must go in GameTest.java
     }
