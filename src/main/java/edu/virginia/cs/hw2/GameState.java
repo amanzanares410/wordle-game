@@ -74,7 +74,18 @@ public class GameState {
         GuessResult guessResult = new GuessResult();
         guessResult.setGuess(guess);
         guessResult.setAnswer(answer);
-
+        if(getRemainingGuesses() == 0) {
+            throw new GameAlreadyOverException("No guesses left");
+        }
+        if(guess.length() != 5) {
+            throw new IllegalWordException("Guess has to be 5 letters long");
+        }
+        for(int i = 0; i < 5; i++) {
+            char letter = guess.charAt(i);
+            if(letter < 'A' || letter > 'Z') {
+                throw new IllegalWordException("Guess can only contain letters");
+            }
+        }
         return null;
         //TODO: Stub - Implement method with TDD - tests must go in GameTest.java
     }
