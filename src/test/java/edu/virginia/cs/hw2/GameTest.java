@@ -63,4 +63,13 @@ class GameTest {
         });
     }
 
+    @Test
+    public void testInvalidInputGuessCount() {
+        DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
+        testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 3, GameState.GameStatus.PLAYING);
+        testGame.submitGuess("He5LO");
+        assertEquals(3, testGame.getGuessCount());
+    }
+
+
 }
