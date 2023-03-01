@@ -71,5 +71,14 @@ class GameTest {
         assertEquals(3, testGame.getGuessCount());
     }
 
+    @Test
+    public void testGameAlreadyOver() {
+        DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
+        testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 3, GameState.GameStatus.WON);
+        assertThrows(GameAlreadyOverException.class, () -> {
+            testGame.submitGuess("HELLO");
+        });
+    }
+
 
 }
