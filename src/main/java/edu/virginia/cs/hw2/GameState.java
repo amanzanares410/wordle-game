@@ -37,7 +37,7 @@ public class GameState {
     }
 
     public GameState() {
-        this(getRandomAnswerFromDefaultDictionary(), getDefaultGuessesDictionary(), MAX_GUESSES, GameStatus.PLAYING);
+        this(getRandomAnswerFromDefaultDictionary(), getDefaultGuessesDictionary(), 0, GameStatus.PLAYING);
     }
 
     private static String getRandomAnswerFromDefaultDictionary() {
@@ -74,7 +74,28 @@ public class GameState {
         GuessResult guessResult = new GuessResult();
         guessResult.setGuess(guess);
         guessResult.setAnswer(answer);
-
+        if(isWin() == true) {
+            throw new GameAlreadyOverException("This game has already been won");
+        }
+        if (getRemainingGuesses() == 0) {
+            throw new GameAlreadyOverException("No guesses left");
+        }
+        if (guess.length() != 5) {
+            throw new IllegalWordException("Guess has to be 5 letters long");
+        }
+        for (int i = 0; i < 5; i++) {
+            char letter = guess.charAt(i);
+            if (letter < 'A' || letter > 'Z') {
+                throw new IllegalWordException("Guess can only contain letters");
+            }
+        }
+        if(guess.equals(this.answer)) {
+            this.gameStatus = GameStatus.WON;
+        }
+        if(guess.equals(this.answer) == false && this.guessCount == 5) {
+            this.gameStatus = GameStatus.LOST;
+        }
+        this.guessCount++;
         return null;
         //TODO: Stub - Implement method with TDD - tests must go in GameTest.java
     }
