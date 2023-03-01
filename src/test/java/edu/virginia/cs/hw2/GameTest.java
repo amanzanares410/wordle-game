@@ -48,6 +48,20 @@ class GameTest {
     }
 
     @Test
+    public void testGetRemainingGuessesZero() {
+        DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
+        testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 6, GameState.GameStatus.PLAYING);
+        assertEquals(0, testGame.getRemainingGuesses());
+    }
+    @Test
+    public void testGetRemainingGuessesAll() {
+        DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
+        testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 0, GameState.GameStatus.PLAYING);
+        assertEquals(6, testGame.getRemainingGuesses());
+    }
+
+
+    @Test
     public void getAnswer() {
         DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
         testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 3, GameState.GameStatus.PLAYING);
