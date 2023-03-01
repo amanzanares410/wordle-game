@@ -50,6 +50,22 @@ class GameTest {
     }
 
     @Test
+    public void testIsGameOverFalse() {
+        DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
+        testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 2, GameState.GameStatus.PLAYING);
+        testGame.submitGuess("PLANE");
+        assertFalse(testGame.isGameOver());
+    }
+
+    @Test
+    public void testIsGameOverTrue() {
+        DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
+        testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 2, GameState.GameStatus.WON);
+        testGame.submitGuess("PLANE");
+        assertFalse(testGame.isGameOver());
+    }
+
+    @Test
     public void testGetGuessCount() {
         DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
         testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 3, GameState.GameStatus.PLAYING);
@@ -59,8 +75,8 @@ class GameTest {
     @Test
     public void testGetRemainingGuesses() {
         DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
-        testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 3, GameState.GameStatus.PLAYING);
-        assertEquals(3, testGame.getRemainingGuesses());
+        testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 4, GameState.GameStatus.PLAYING);
+        assertEquals(2, testGame.getRemainingGuesses());
     }
 
     @Test
