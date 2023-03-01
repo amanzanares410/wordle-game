@@ -33,6 +33,4 @@ class GameTest {
         assertFalse(testGame.isWin());
     }
 
-    }
-
 }
