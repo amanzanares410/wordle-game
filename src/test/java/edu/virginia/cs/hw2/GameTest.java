@@ -17,4 +17,22 @@ class GameTest {
                 () -> new GameState("QZXYX"));
     }
 
+    @Test
+    public void testIsWinTrue() {
+        DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
+        testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 4, GameState.GameStatus.PLAYING);
+        testGame.submitGuess("HELLO");
+        assertTrue(testGame.isWin());
+    }
+
+    @Test
+    public void testIsWinFalse() {
+        DefaultDictionaryFactory factory = new DefaultDictionaryFactory();
+        testGame = new GameState("HELLO", factory.getDefaultGuessesDictionary(), 3, GameState.GameStatus.PLAYING);
+        testGame.submitGuess("PLANE");
+        assertFalse(testGame.isWin());
+    }
+
+    }
+
 }
